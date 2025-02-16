@@ -1,0 +1,563 @@
+body {
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+  font-family: "Raleway", serif;
+  color: rgb(96, 94, 94);
+  display: flex;
+  flex-direction: column;
+  font-size: 17px;
+  overflow-x: clip;
+}
+
+html {
+  overflow-x: clip;
+  scroll-behavior: smooth;
+}
+
+input,
+textarea {
+  all: unset;
+  width: auto;
+  height: auto;
+  background: none;
+  border: none;
+  padding: 0;
+  outline: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.parallax-container {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.parallax-container.top {
+  height: 80vh;
+}
+
+.parallax-container .parallax-background {
+  margin-top: 80px;
+}
+
+.parallax-container.bottom {
+  height: 80vh;
+}
+
+.parallax-container.bottom .parallax-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('./assets/bottom-back.webp');
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  will-change: transform;
+}
+
+.parallax-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-position: top;
+  background-size: cover;
+  background-attachment: fixed;
+  will-change: transform;
+}
+
+.parallax-container.top .parallax-background {
+  background-image: url('./assets/top-back.webp');
+}
+
+.parallax-container.bottom .parallax-background {
+  background-image: url('./assets/bottom-back.webp');
+}
+
+.header {
+  height: 81px;
+  position: fixed;
+  top: 0;
+  z-index: 100;
+  background-color: white;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header-btn {
+  width: 155px;
+  height: 30px;
+  font-size: 13px;
+  line-height: 30px;
+  cursor: pointer;
+  margin: 0 5px;
+  text-align: center;
+  border: 2px solid transparent;
+  transition: border-color 200ms ease-in-out;
+}
+
+.container {
+  display: flex;
+}
+
+.about .left {
+  overflow: hidden;
+  height: 700px;
+  width: 700px;
+}
+
+.portfolio {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.portfolio .image {
+  overflow: hidden;
+  width: calc(100vw/4);
+  height: calc(100vw/4 - 80px);
+  cursor: pointer;
+  position: relative;
+}
+
+.portfolio .image img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.portfolio .image:hover:after {
+  opacity: 0.5;
+}
+
+.portfolio .image:after {
+  content: '';
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  opacity: 0;
+  background-color: white;
+  top: 0;
+  left: 0;
+  transition: opacity 500ms ease-in-out;
+}
+
+.about .left img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  object-position: right;
+}
+
+.about .right h2 {
+  margin-top: 50px;
+}
+
+.parallax-container .content {
+  z-index: 1;
+  position: inherit;
+  color: white;
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  align-items: center;
+}
+
+.js-back-button {
+  opacity: 0;
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
+  border: 2px black solid;
+  background-image: url('./assets/chevron.webp');
+  background-color: white;
+  background-size: 60%;
+  cursor: pointer;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: fixed;
+  bottom: 20px;
+  right: 40px;
+  transition: opacity 100ms ease-in-out;
+}
+
+.parallax-container .content h1 {
+  margin-top: auto;
+  color: white;
+  font-size: 50px;
+  font-family: "EB Garamond", serif;
+  letter-spacing: 5px;
+  margin-bottom: 5px;
+}
+
+.parallax-container .content h2 {
+  color: white;
+  font-family: "Raleway", serif;
+  font-size: 29px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  margin-top: 0;
+}
+
+h2 {
+  font-size: 40px;
+  font-weight: 100;
+  letter-spacing: 5px;
+  color: #2F2E2E;
+  font-family: "EB Garamond", serif;
+}
+
+.about .right h2:after {
+  content: '';
+  display: block;
+  height: 1px;
+  width: 33px;
+  background-color: black;
+  margin-bottom: 40px;
+  margin-top: 40px;
+}
+
+.about .right .text:first-child {
+  margin-bottom: 17px;
+}
+
+.about .right {
+  margin-left: 40px;
+  max-width: 350px;
+}
+
+.header-btn:hover {
+  border-color: black;
+}
+
+.header-btn.active {
+  border-color: black;
+}
+
+.container.packages {
+  flex-wrap: wrap;
+  max-width: 1200px;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.container .package h3 {
+  font-size: 26px;
+  letter-spacing: 2px;
+  font-weight: 800;
+}
+
+.container .package .text {
+  margin-bottom: 30px;
+}
+
+.container .package .price {
+  color: rgb(47, 46, 46);
+  font-size: 21px;
+}
+
+.container .package {
+  margin: 30px;
+}
+
+.container .package .text {
+  max-width: 462px;
+}
+
+.container .package img {
+  width: 462px;
+  height: 306px;
+}
+
+.container.contact {
+  justify-content: center;
+}
+
+.container.contact .right img {
+  height: 600px;
+}
+
+.contact .left {
+  margin-right: 30px;
+  max-width: 375px;
+}
+
+.contact .left h2:after {
+  content: '';
+  display: block;
+  height: 1px;
+  width: 33px;
+  background-color: black;
+  margin-bottom: 40px;
+  margin-top: 40px;
+}
+
+.contact .left .text {
+  font-size: 13px;
+  line-height: 17px;
+  max-width: 360px;
+}
+
+.submit-button {
+  background-color: black;
+  color: white;
+  width: min-content;
+  height: min-content;
+  line-height: 17px;
+  padding: 8px;
+  font-weight: 200;
+  margin-left: auto;
+  margin-top: 5px;
+  cursor: pointer;
+}
+
+.contact .left .form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 56px;
+}
+
+a {
+  text-decoration: none;
+  color: rgb(96, 94, 94);
+}
+
+.contact .left input,
+.contact .left textarea {
+  margin-bottom: 3px;
+  font-size: 13px;
+  font-family: "Raleway", serif;
+  padding: 3px 3px 3px 5px;
+  width: 365px;
+  border: 1px solid rgb(126, 126, 126);
+}
+
+.contact .left textarea {
+  height: 130px;
+}
+
+.error {
+  color: #ff3636;
+  font-size: 13px;
+}
+
+.success {
+  color: chartreuse;
+  font-size: 13px;
+}
+
+.error,
+.success {
+  display: none;
+}
+
+.bottom-block {
+  display: flex;
+}
+
+.heh {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  color: white;
+}
+
+.js-image-opener {
+  display: none;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 1000000;
+  justify-content: center;
+  align-items: center;
+}
+
+.js-image-opener img {
+  margin: auto;
+}
+
+.js-image-opener.visible {
+  display: flex;
+}
+
+.desktop {
+  display: flex;
+}
+
+.mobile {
+  display: none;
+}
+
+.js-image-opener .container-opener {
+  display: flex;
+  position: relative;
+}
+
+.js-image-opener .next {
+  right: -100px;
+  transform: translateY(-50%);
+}
+
+.js-image-opener .closer {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  right: -50px;
+  top: -50px;
+  cursor: pointer;
+  transform: rotate(180deg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-image: url('./assets/closer.webp');
+}
+
+.js-image-opener .arrow {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  top: 50%;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  background-size: contain;
+  background-image: url('./assets/arrow.webp');
+}
+
+.js-image-opener img.reload {
+  display: none;
+}
+
+.js-image-opener img {
+  max-width: 80vw;
+  max-height: 80vh;
+  width: auto;
+  height: auto;
+}
+
+.js-image-opener .prev {
+  left: -100px;
+  transform: translateY(-50%)  rotate(180deg);
+}
+
+@media (max-width: 1000px) {
+  .desktop {
+    display: none;
+  }
+
+  .mobile {
+    display: flex;
+  }
+
+  .header {
+    width: 100%;
+  }
+
+  .header-btn {
+    width: 110px;
+    white-space: nowrap;
+    border: none !important;
+  }
+
+  .parallax-container .content h1 {
+    font-size: 14px;
+  }
+
+  .parallax-container .content h2 {
+    font-size: 20px;
+  }
+
+  .portfolio {
+    margin-top: 20px;
+  }
+
+  .portfolio .image {
+    width: 100%;
+    height: 100%;
+    display: none;
+  }
+
+  .portfolio .image:nth-child(1),
+  .portfolio .image:nth-child(2),
+  .portfolio .image:nth-child(3) {
+    display: block;
+  }
+
+  .container .package {
+    margin: 10px;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .container .package img {
+    max-width: 350px;
+    width: auto;
+    height: auto;
+  }
+
+  .contact .left {
+    margin-right: 0;
+    margin-bottom: 40px;
+  }
+
+  .contact .right {
+    display: none;
+  }
+
+  .contact .left .text {
+    width: auto;
+  }
+
+  .contact .left input,
+  .contact .left textarea {
+    width: 97%;
+  }
+
+  .js-back-button {
+    left: 10px;
+    right: unset;
+    bottom: 10px;
+  }
+
+  .js-image-opener .next {
+    width: 20px;
+    height: 20px;
+    right: -30px;
+  }
+
+  .js-image-opener .prev {
+    width: 20px;
+    height: 20px;
+    left: -30px;
+  }
+
+  .js-image-opener .closer {
+    width: 15px;
+    height: 15px;
+    top: -25px;
+    right: -25px;
+  }
+}
+
+@media (max-width: 700px) {
+  .about .right {
+    min-width: 97%;
+    margin: 10px;
+  }
+
+  .about .left {
+    display: none;
+  }
+}
