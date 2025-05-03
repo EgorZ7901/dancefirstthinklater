@@ -504,7 +504,7 @@ a {
   }
 
   .parallax-container.bottom img {
-    clip-path: inset(0 0 30px 0);
+    clip-path: inset(0 0 20px 0);
   }
 
   .js-back-button {
