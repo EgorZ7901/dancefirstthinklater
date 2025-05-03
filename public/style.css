@@ -43,24 +43,6 @@ textarea {
   margin-top: 80px;
 }
 
-.parallax-container.bottom {
-  height: 70vh;
-}
-
-.parallax-container.bottom .parallax-background {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: url('./assets/bottom-back.webp');
-  background-position: center;
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  will-change: transform;
-}
-
 .parallax-background {
   position: absolute;
   top: 0;
@@ -75,10 +57,6 @@ textarea {
 
 .parallax-container.top .parallax-background {
   background-image: url('./assets/top-back.webp');
-}
-
-.parallax-container.bottom .parallax-background {
-  background-image: url('./assets/bottom-back.webp');
 }
 
 .header {
@@ -562,7 +540,14 @@ a {
   }
 }
 
+.parallax-container.bottom {
+  display: flex;
+}
+
 .parallax-container.bottom img {
   width: 100%;
   height: 100%;
+  margin: 0 auto;
+  max-width: 1000px;
+  clip-path: inset(0 0 40px 0);
 }
