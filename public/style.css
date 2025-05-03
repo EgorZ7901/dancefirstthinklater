@@ -437,13 +437,32 @@ a {
 }
 
 @media (max-width: 700px) {
+  .left {
+    height: auto !important;
+  }
+
   .about {
     flex-direction: column-reverse;
   }
+}
 
-
+@media (max-width: 600px) {
   .left img {
-    object-position: 500% 0;
+    object-position: 100% 0;
+    object-fit: none !important;
+  }
+}
+
+@media (max-width: 550px) {
+  .left img {
+    object-position: 300% 0;
+    object-fit: none !important;
+  }
+}
+
+@media (max-width: 440px) {
+  .left img {
+    object-position: 400% 0;
     object-fit: none !important;
   }
 }
