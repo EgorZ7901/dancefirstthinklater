@@ -5,14 +5,13 @@ const serverless = require('serverless-http');
 require('dotenv').config();
 
 const app = express();
-const port = 3000;
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Endpoint to handle form submissions
 app.post('/send-message', async (req, res) => {
   const { emailValue, nameValue, messageValue, dateValue, songValue } = req.body.message;
+
   if (!emailValue|| !nameValue) {
     return res.status(400).json({ error: 'Name and email are required.' });
   }
@@ -40,7 +39,3 @@ app.get('*', (req, res) => {
 });
 
 module.exports = serverless(app);
-
-app.listen(port, () => {
-  console.log(`Server running at http://localhost:${port}`);
-});
