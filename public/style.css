@@ -267,6 +267,7 @@ h2 {
 .contact .left {
   margin-right: 30px;
   max-width: 375px;
+  margin-top: 20px;
 }
 
 .contact .left h2:after {
@@ -434,7 +435,7 @@ a {
   transform: translateY(-50%)  rotate(180deg);
 }
 
-@media (max-width: 451px) {
+@media (max-width: 601px) {
   .left img {
     object-position: 500% 0;
     object-fit: none !important;
