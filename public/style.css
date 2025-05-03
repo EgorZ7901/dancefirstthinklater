@@ -441,7 +441,7 @@ a {
 
   .left img {
     object-position: 500% 0;
-    object-fit: none;
+    object-fit: none !important;
   }
 }
 
