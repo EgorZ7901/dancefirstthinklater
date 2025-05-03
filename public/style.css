@@ -538,10 +538,6 @@ a {
     min-width: 97%;
     margin: 10px;
   }
-
-  .about .left {
-    display: none;
-  }
 }
 
 .parallax-container.bottom {
