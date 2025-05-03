@@ -133,7 +133,6 @@ textarea {
   height: 100%;
   width: 100%;
   object-fit: cover;
-  object-position: 500% 0;
 }
 
 .about .right h2 {
@@ -438,6 +437,14 @@ a {
 @media (max-width: 1000px) {
   .desktop {
     display: none;
+  }
+
+  .left {
+    flex-direction: column-reverse;
+  }
+
+  .left img {
+    object-position: 500% 0;
   }
 
   .mobile {
