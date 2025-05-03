@@ -210,6 +210,7 @@ h2 {
 .about .right {
   margin-left: 40px;
   max-width: 350px;
+  margin-right: 10px;
 }
 
 .header-btn:hover {
@@ -435,7 +436,12 @@ a {
   transform: translateY(-50%)  rotate(180deg);
 }
 
-@media (max-width: 601px) {
+@media (max-width: 700px) {
+  .about {
+    flex-direction: column-reverse;
+  }
+
+
   .left img {
     object-position: 500% 0;
     object-fit: none !important;
@@ -445,10 +451,6 @@ a {
 @media (max-width: 1000px) {
   .desktop {
     display: none;
-  }
-
-  .about {
-    flex-direction: column-reverse;
   }
 
   .mobile {
