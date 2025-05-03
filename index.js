@@ -1,5 +1,7 @@
 const express = require('express');
 const axios = require('axios');
+const path = require('path');
+const serverless = require('serverless-http');
 require('dotenv').config();
 
 const app = express();
@@ -31,7 +33,13 @@ app.post('/send-message', async (req, res) => {
   }
 });
 
-app.use(express.static('public'));
+app.use(express.static(path.join(__dirname, 'public')));
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
+
+module.exports = serverless(app);
 
 app.listen(port, () => {
   console.log(`Server running at http://localhost:${port}`);
