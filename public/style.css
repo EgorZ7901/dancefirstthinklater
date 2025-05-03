@@ -435,10 +435,6 @@ a {
 }
 
 @media (max-width: 451px) {
-  .about {
-    flex-direction: column-reverse;
-  }
-
   .left img {
     object-position: 500% 0;
     object-fit: none !important;
@@ -448,6 +444,10 @@ a {
 @media (max-width: 1000px) {
   .desktop {
     display: none;
+  }
+
+  .about {
+    flex-direction: column-reverse;
   }
 
   .mobile {
