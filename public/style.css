@@ -542,6 +542,7 @@ a {
 
 .parallax-container.bottom {
   display: flex;
+  height: unset;
 }
 
 .parallax-container.bottom img {
