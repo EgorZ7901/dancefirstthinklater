@@ -13,6 +13,7 @@ let currentImage = 0;
 const imagesFrame = document.querySelector('.js-image-opener');
 const images = document.querySelectorAll('.portfolio .image');
 let removeListeners = null;
+let isSent = false;
 
 window.addEventListener('scroll', function() {
   const parallax = document.querySelector('.parallax-background');
@@ -38,6 +39,9 @@ scrollToTopBtn.onclick = function() {
 };
 
 checkDiv.addEventListener('click', function() {
+  if (isSent) {
+    return;
+  }
   const emailValue = emailInput.value.trim();
   const nameValue = nameInput.value.trim();
   errorFill.style.display = 'none';
@@ -55,7 +59,6 @@ checkDiv.addEventListener('click', function() {
     return;
   }
 
-  successMessage.style.display = 'block';
   sendData();
 });
 
@@ -154,6 +157,13 @@ async function sendData() {
 
     if (result.success) {
       console.log('Your message has been sent!');
+      isSent = true;
+      checkDiv.classList.add('disabled');
+      setTimeout(() => {
+        checkDiv.classList.remove('disabled');
+        isSent = false;
+      }, 5000)
+      successMessage.style.display = 'block';
     } else {
       errorFail.style.display = 'block'
       console.log('Failed to send message. Please try again.');

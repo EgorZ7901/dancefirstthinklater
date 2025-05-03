@@ -318,6 +318,12 @@ h2 {
   margin-left: auto;
   margin-top: 5px;
   cursor: pointer;
+  transition: all ease-in-out 1s;
+}
+
+.submit-button.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 
 .contact .left .form {
