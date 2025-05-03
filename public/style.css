@@ -434,17 +434,20 @@ a {
   transform: translateY(-50%)  rotate(180deg);
 }
 
-@media (max-width: 1000px) {
-  .desktop {
-    display: none;
-  }
-
+@media (max-width: 451px) {
   .about {
     flex-direction: column-reverse;
   }
 
   .left img {
     object-position: 500% 0;
+    object-fit: none;
+  }
+}
+
+@media (max-width: 1000px) {
+  .desktop {
+    display: none;
   }
 
   .mobile {
