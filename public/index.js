@@ -25,6 +25,8 @@ function paralaxFunction() {
   parallax.style.transform = `translateY(${scrollPosition * 0.5}px)`;
 }
 
+paralaxFunction();
+
 const scrollToTopBtn = document.querySelector('.js-back-button');
 
 window.onscroll = function() {
