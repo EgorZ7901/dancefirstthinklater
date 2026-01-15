@@ -16,10 +16,14 @@ let removeListeners = null;
 let isSent = false;
 
 window.addEventListener('scroll', function() {
+  paralaxFunction();
+});
+
+function paralaxFunction() {
   const parallax = document.querySelector('.parallax-background');
   const scrollPosition = window.scrollY;
   parallax.style.transform = `translateY(${scrollPosition * 0.5}px)`;
-});
+}
 
 const scrollToTopBtn = document.querySelector('.js-back-button');
 
