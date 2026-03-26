@@ -1,28 +1,32 @@
-import fetch from 'node-fetch';
+const axios = require('axios');
 
 const { MEASUREMENT_ID, API_SECRET } = process.env;
 
-export async function trackEvent({ clientId, name, params = {} }) {
+async function trackEvent({ clientId, name, params = {} }) {
   console.log('trackEvent', clientId, name, params);
+
   try {
-    await fetch(
-      `https://www.google-analytics.com/mp/collect?measurement_id=${MEASUREMENT_ID}&api_secret=${API_SECRET}`,
+    await axios.post(
+      `https://www.google-analytics.com/mp/collect`,
       {
-        method: 'POST',
-        body: JSON.stringify({
-          client_id: clientId,
-          events: [
-            {
-              name,
-              params: {
-                ...params,
-              }
-            }
-          ]
-        })
+        client_id: clientId,
+        events: [
+          {
+            name,
+            params
+          }
+        ]
+      },
+      {
+        params: {
+          measurement_id: MEASUREMENT_ID,
+          api_secret: API_SECRET
+        }
       }
     );
   } catch (e) {
-    console.error('GA4 track error:', e);
+    console.error('GA4 track error:', e.response?.data || e.message);
   }
 }
+
+module.exports = { trackEvent };
