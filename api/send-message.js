@@ -21,6 +21,7 @@ module.exports = async (req, res) => {
 
   try {
     await axios.post(telegramApiUrl, payload, { timeout: 8000 });
+    res.status(200).json({ success: true });
     await trackEvent({
       clientId,
       name: 'form_sent_successes',
@@ -32,6 +33,7 @@ module.exports = async (req, res) => {
     });
   } catch (error) {
     console.error(error.message);
+    res.status(500).json({ error: 'Failed to send message' });
     await trackEvent({
       clientId,
       name: 'form_sent_error',
