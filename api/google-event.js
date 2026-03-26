@@ -3,6 +3,7 @@ import fetch from 'node-fetch';
 const { MEASUREMENT_ID, API_SECRET } = process.env;
 
 export async function trackEvent({ clientId, name, params = {} }) {
+  console.log('trackEvent', clientId, name, params);
   try {
     await fetch(
       `https://www.google-analytics.com/mp/collect?measurement_id=${MEASUREMENT_ID}&api_secret=${API_SECRET}`,
