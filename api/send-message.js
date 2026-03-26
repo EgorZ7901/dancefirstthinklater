@@ -1,5 +1,5 @@
 const axios = require('axios');
-const { trackEvent } = require('./google-event');
+const { trackEvent } = require('./google-event.js');
 
 module.exports = async (req, res) => {
   if (req.method !== 'POST') {
