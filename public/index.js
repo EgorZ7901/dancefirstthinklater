@@ -14,6 +14,10 @@ const imagesFrame = document.querySelector('.js-image-opener');
 const images = document.querySelectorAll('.portfolio .image');
 let removeListeners = null;
 let isSent = false;
+const banner = document.getElementById('cookie-banner');
+const acceptBtn = document.getElementById('cookie-accept');
+
+const COOKIE_KEY = 'cookie_consent';
 
 window.addEventListener('scroll', function() {
   paralaxFunction();
@@ -140,6 +144,20 @@ function closeModalFunction() {
   removeListeners = null;
 }
 
+function getClientId() {
+  const match = document.cookie.match(/_ga=GA\d+\.\d+\.(.+)/);
+  return match ? match[1] : null;
+}
+
+if (!localStorage.getItem(COOKIE_KEY)) {
+  banner.classList.remove('hidden');
+}
+
+acceptBtn.addEventListener('click', () => {
+  localStorage.setItem(COOKIE_KEY, 'accepted');
+  banner.classList.add('hidden');
+});
+
 async function sendData() {
   const message = {
     emailValue: emailInput.value.trim(),
@@ -147,6 +165,7 @@ async function sendData() {
     dateValue: dateInput.value.trim(),
     songValue: songInput.value.trim(),
     messageValue: messageInput.value.trim(),
+    clientId: getClientId(),
   }
 
 
